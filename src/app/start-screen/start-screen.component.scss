@@ -1,0 +1,112 @@
+
+// $background-color: #931016;
+$background-color: #015A30;
+
+
+.start-screen {
+    background-image: url('/assets/img/start-screen.jpg');
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    
+    
+
+
+    .title-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .title {
+        color: white;
+        margin-top: 35px;
+        font-size: 55px;
+        font-weight: bold;
+        font-family: Martel, sans-serif !important;
+        background-color: $background-color;
+        padding: 10px 60px;
+        border-radius: 10px;
+        vertical-align: middle;
+        border-radius: 5px;
+        box-shadow: 0 0 0 8px #1A232A;
+    }
+
+    button {
+        background-color: $background-color;
+        border: none;
+        border-radius: 10px;
+        font-family: Martel, sans-serif !important;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        padding: 8px 15px;
+        bottom: 130px;
+        left: 150px;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(1.25);
+        }
+    }
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+.conic {
+	position: relative;
+	z-index: 0;
+	// width: 400px;
+	// height: 300px;
+	margin: 20px;
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 2rem;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -2;
+		left: -115%;
+		top: -115%;
+		width: 330%;
+		height: 330%;
+		background-color: #1a232a;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-image: conic-gradient(transparent, rgba(168, 239, 255, 1), transparent 30%);
+		animation: rotate 4s linear infinite;
+	}
+	
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 6px;
+		top: 6px;
+		width: calc(100% - 12px);
+		height: calc(100% - 12px);
+		background: $background-color;
+		border-radius: 5px;
+	}
+}
+
+
+@keyframes opacityChange {
+	50% {
+		opacity:.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
