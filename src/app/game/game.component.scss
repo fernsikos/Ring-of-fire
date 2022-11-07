@@ -1,6 +1,8 @@
 .players {
     position: absolute;
     right: 0;
+    max-height: 100vh;
+    overflow: scroll;
 }
 
 .game-container {
