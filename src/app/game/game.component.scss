@@ -1,7 +1,15 @@
 .players {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.player-container {
     position: absolute;
     right: 0;
-    max-height: 100vh;
+    padding-top: 80px;
+    max-height: 80vh;
     overflow: scroll;
 }
 
