@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { collection, doc, setDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,9 +15,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameComponent implements OnInit {
 
-  pickCardAnimation: boolean = false;
+  
   game: Game;
-  currentCard: string = '';
+  currentGameId: string;
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore, private route: ActivatedRoute) {
 
@@ -26,12 +26,11 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.newGame();
     this.route.params.subscribe((params) => {
-      console.log(params['id']);
-
+      this.currentGameId = params['id']
       this
         .firestore
         .collection('games')
-        .doc(params['id'])
+        .doc(this.currentGameId)
         .valueChanges()
         .subscribe((game: any) => {
           console.log('Updated Game', game);
@@ -39,6 +38,8 @@ export class GameComponent implements OnInit {
           this.game.stack = game.stack;
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCards = game.playedCards
+          this.game.pickCardAnimation = game.pickCardAnimation
+          this.game.currentCard = game.currentCard
           console.log('Local Game', this.game);
         });
 
@@ -49,20 +50,27 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game();
-    // this.firestore
-    //   .collection('games')
-    //   .add({'game': this.game.toJson()})
+  }
+
+  updateGame() {
+    this
+        .firestore
+        .collection('games')
+        .doc(this.currentGameId)
+        .update(this.game.toJson())
   }
 
   pickCard() {
-    if (!this.pickCardAnimation) {
-      this.currentCard = this.game.stack.pop();
-      this.pickCardAnimation = true;
+    if (!this.game.pickCardAnimation) {
+      this.game.currentCard = this.game.stack.pop();
+      this.game.pickCardAnimation = true;
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+      this.updateGame();
       setTimeout(() => {
-        this.pickCardAnimation = false;
-        this.game.playedCards.push(this.currentCard)
+        this.game.pickCardAnimation = false;
+        this.game.playedCards.push(this.game.currentCard);
+        this.updateGame();
       }, 1500);
     }
   }
@@ -73,6 +81,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0)
         this.game.players.push(name);
+        this.updateGame()
     });
   }
 }

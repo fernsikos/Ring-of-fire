@@ -1,10 +1,11 @@
 .player {
-    width: 300px;
+    width: 250px;
     display: flex;
     align-items: center;
     background-color: #30544497;
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
+    z-index: 1;
 
     span {
         font-size: 24px;
@@ -25,7 +26,7 @@
 }
 
 .playerActive {
-    width: 350px;
+    width: 300px;
     background-color: #015A30 !important;
 }
 
