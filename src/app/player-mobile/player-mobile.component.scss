@@ -1,0 +1,28 @@
+.player {
+    
+    position: relative;
+
+    span {
+        background-color: #015A30 !important;
+        padding: 10px 20px;
+        font-size: 24px;
+        border-radius: 30px;
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 10px;
+    }
+
+    img {
+        position: absolute;
+        height: 45px;
+        width: 45px;
+        object-fit: cover;
+        border-radius: 100%;
+        margin: 10px;
+    }
+
+    .dontHide {
+        display: block;
+    }
+}
