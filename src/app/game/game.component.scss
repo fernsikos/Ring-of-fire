@@ -10,10 +10,22 @@
     right: 0;
     padding-top: 80px;
     max-height: 80vh;
+  
 }
 
 .player-mobile {
     position: absolute;
+}
+
+.player-container-mobile {
+    overflow-y: scroll;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 105px;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 .game-container {
@@ -111,5 +123,14 @@
         // transform: scale(1.2) translateX(-20px) translateY(-180px) rotate(-10deg);
         transform: scale(1.2) translateX(10px) translateY(-150px) rotate(-9deg) !important;
     }
+
+    .pick-card {
+        transition: all 125ms ease-in-out;
+        animation: pic-card-animation 1s ease-in-out;
+        // transform: scale(1.2) translateX(-20px) translateY(-180px) rotate(-10deg);
+        transform: scale(1.2) translateX(10px) translateY(-181px) rotate(-9deg) !important;
+
+    }
+
 
 }

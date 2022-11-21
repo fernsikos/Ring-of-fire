@@ -21,6 +21,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -49,6 +50,7 @@ import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
     MatCardModule,
     FormsModule,
     BrowserModule,
+    MatRadioModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],

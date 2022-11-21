@@ -6,6 +6,10 @@
     <input matInput [(ngModel)]="name">
   </mat-form-field>
 </div>
+<mat-radio-group aria-label="Select an option">
+  <mat-radio-button value="male" [(ngModel)]="gender">Male</mat-radio-button>
+  <mat-radio-button value="female" [(ngModel)]="gender">Female</mat-radio-button>
+</mat-radio-group>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button [disabled]="name.length==0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>

@@ -84,4 +84,8 @@ export class GameComponent implements OnInit {
         this.updateGame()
     });
   }
+
+  // edidPlayer(playerId: number) {
+  //   console.log('edid Player', playerId)
+  // }
 }
