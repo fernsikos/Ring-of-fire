@@ -13,7 +13,7 @@ export class DialogAddPlayerComponent implements OnInit {
   gender: string;
 
   constructor(    public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { 
-    
+    this.gender = 'male';
   }
 
   ngOnInit(): void {
@@ -21,6 +21,11 @@ export class DialogAddPlayerComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close();
+  }
+
+  onItemChange(event) {
+    
+    console.log(event)
   }
 
 }
