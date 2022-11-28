@@ -23,6 +23,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { RestartDialogComponent } from './restart-dialog/restart-dialog.component';
 
 
 
@@ -40,6 +41,7 @@ import { EditPlayerComponent } from './edit-player/edit-player.component';
     GameInfoComponent,
     PlayerMobileComponent,
     EditPlayerComponent,
+    RestartDialogComponent,
   ],
   imports: [
     BrowserModule,
