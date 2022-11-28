@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Edit player</h1>
+<div mat-dialog-content>
+    <p>Please edit the player information.</p>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <!-- <input matInput value="{{ i }}"> -->
+      </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">Close</button>
+    <button mat-button color="warn" [mat-dialog-close]="'DELETE'" cdkFocusInitial>Delete player</button>
+  </div>

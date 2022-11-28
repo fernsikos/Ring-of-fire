@@ -6,19 +6,23 @@
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
     z-index: 1;
+    overflow: hidden;
 
     span {
         font-size: 24px;
+        line-height: 1;
         margin-left: 16px;
         margin-right: 16px;
-        overflow-wrap: break-word;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
         font-family: Martel, sans-serif !important;
 
     }
 
     img {
-        height: 45px;
-        width: 45px;
+        height: 40px;
+        width: 40px;
         object-fit: cover;
         border-radius: 100%;
         margin: 10px 0 10px 10px;

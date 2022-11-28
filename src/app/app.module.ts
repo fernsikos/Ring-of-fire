@@ -22,6 +22,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { EditPlayerComponent } from './edit-player/edit-player.component';
 
 
 
@@ -38,6 +39,7 @@ import {MatRadioModule} from '@angular/material/radio';
     DialogAddPlayerComponent,
     GameInfoComponent,
     PlayerMobileComponent,
+    EditPlayerComponent,
   ],
   imports: [
     BrowserModule,

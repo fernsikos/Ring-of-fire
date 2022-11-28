@@ -5,6 +5,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { collection, doc, setDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 
 
@@ -48,6 +49,20 @@ export class GameComponent implements OnInit {
 
   }
 
+  editPlayer(playerId:number) {
+    console.log('editPlayer' + playerId);
+    const dialogRef = this.dialog.open(EditPlayerComponent);
+    dialogRef.afterClosed().subscribe((change: any) => {
+      if(change) {
+        if(change == 'DELETE') {
+          console.log('Delete player')
+          this.game.players.splice(playerId,1);
+        } 
+      };
+      this.updateGame();
+    });
+  }
+
   newGame() {
     this.game = new Game();
   }
@@ -81,7 +96,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0)
         this.game.players.push(name);
-        this.game.genders.push(gender);
+        // this.game.genders.push(gender);
         this.updateGame()
     });
   }
