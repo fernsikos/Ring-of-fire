@@ -10,9 +10,9 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class DialogAddPlayerComponent implements OnInit {
 
   name: string = "";
-  gender: string;
+  public gender: string;
 
-  constructor(    public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { 
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { 
     this.gender = 'male';
   }
 
@@ -23,9 +23,9 @@ export class DialogAddPlayerComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onItemChange(event) {
-    
-    console.log(event)
+  onItemChange(event:any) {
+    this.gender = event.value;
+    console.log(this.gender)
   }
 
 }
