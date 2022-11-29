@@ -53,8 +53,13 @@ export class GameComponent implements OnInit {
 
   editPlayer(playerId: number) {
     console.log('editPlayer' + playerId);
-    const dialogRef = this.dialog.open(EditPlayerComponent);
+    const dialogRef = this.dialog.open(EditPlayerComponent, {
+      data: {
+        player: playerId
+      }
+    });
     dialogRef.afterClosed().subscribe((change: any) => {
+      console.log('change:' + change)
       if (change) {
         if (change == 'DELETE') {
           this.game.genders.splice(playerId, 1);
@@ -104,9 +109,10 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent, {
     });
     dialogRef.afterClosed().subscribe((name: string) => {
-      if (name && name.length > 0)
+      if (name && name.length > 0) {
         this.game.players.push(name);
-      this.game.genders.push(this.varservice.choosedGender);
+        this.game.genders.push(this.varservice.choosedGender);
+      }
       this.updateGame()
     });
   }

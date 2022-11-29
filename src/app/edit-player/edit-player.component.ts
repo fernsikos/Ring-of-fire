@@ -9,7 +9,11 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class EditPlayerComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<EditPlayerComponent>) { }
+  name: string = "";
+  
+  constructor(public dialogRef: MatDialogRef<EditPlayerComponent>) {
+  }
+
 
   ngOnInit(): void {
   }
