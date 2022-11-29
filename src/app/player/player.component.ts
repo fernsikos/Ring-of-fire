@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -9,6 +10,7 @@ export class PlayerComponent implements OnInit {
 
   @Input() name;
   @Input() activePlayer : boolean;
+  @Input() gender: string;
 
   constructor() { }
 

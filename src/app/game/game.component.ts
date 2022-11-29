@@ -7,6 +7,7 @@ import { collection, doc, setDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
 import { RestartDialogComponent } from '../restart-dialog/restart-dialog.component';
+import { VarServiceService } from '../var-service.service';
 
 
 
@@ -21,7 +22,7 @@ export class GameComponent implements OnInit {
   game: Game;
   currentGameId: string;
 
-  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private route: ActivatedRoute) {
+  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private route: ActivatedRoute, private varservice: VarServiceService) {
 
   }
 
@@ -56,7 +57,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((change: any) => {
       if (change) {
         if (change == 'DELETE') {
-          console.log('Delete player')
+          this.game.genders.splice(playerId, 1);
           this.game.players.splice(playerId, 1);
         }
       };
@@ -105,7 +106,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0)
         this.game.players.push(name);
-      // this.game.genders.push(gender);
+      this.game.genders.push(this.varservice.choosedGender);
       this.updateGame()
     });
   }

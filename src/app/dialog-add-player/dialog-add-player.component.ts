@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { VarServiceService } from '../var-service.service';
 
 
 @Component({
@@ -10,10 +11,10 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class DialogAddPlayerComponent implements OnInit {
 
   name: string = "";
-  public gender: string;
 
-  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { 
-    this.gender = 'male';
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>, private varservice: VarServiceService) { 
+    varservice.choosedGender = 'male'
+    console.log(varservice.choosedGender)
   }
 
   ngOnInit(): void {
@@ -24,8 +25,8 @@ export class DialogAddPlayerComponent implements OnInit {
   }
 
   onItemChange(event:any) {
-    this.gender = event.value;
-    console.log(this.gender)
+    this.varservice.choosedGender = event.value;
+    console.log(this.varservice.choosedGender)
   }
 
 }
