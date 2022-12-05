@@ -6,9 +6,16 @@
           "ring-of-fire-29132"
         ]
       }
+    },
+    "ringoffire-eu": {
+      "hosting": {
+        "ringoffire": [
+          "ringoffire-eu"
+        ]
+      }
     }
   },
   "projects": {
-    "default": "ring-of-fire-29132"
+    "default": "ringoffire-eu"
   }
 }

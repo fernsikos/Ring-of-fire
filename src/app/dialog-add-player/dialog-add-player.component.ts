@@ -25,7 +25,6 @@ export class DialogAddPlayerComponent implements OnInit {
 
   onItemChange(event:any) {
     this.varservice.choosedGender = event.value;
-    console.log(this.varservice.choosedGender)
   }
 
 }

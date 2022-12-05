@@ -17,7 +17,6 @@ export class StartScreenComponent implements OnInit {
   }
 
   startGame() {
-    // this.router.navigateByUrl('/game/rBP5si6L7ie6X6hapI51');
     this.newGame()
   }
 
