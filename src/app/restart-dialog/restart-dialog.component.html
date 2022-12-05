@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Game Over!</h1>
 <div mat-dialog-content>
-    <p>Youre not drunk yet? Lets do a secont round</p>
+    <p>Oh, youre not drunk yet? Lets do a secont round</p>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions [mat-dialog-close]="'restart'">
     <button mat-button (click)="restartGame()">Restart</button>
   </div>

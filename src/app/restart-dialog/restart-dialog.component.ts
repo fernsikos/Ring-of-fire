@@ -14,7 +14,7 @@ export class RestartDialogComponent implements OnInit {
   }
 
   restartGame() {
-    
+    this.dialogRef.close()
   }
 
 }

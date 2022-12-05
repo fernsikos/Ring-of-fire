@@ -39,6 +39,7 @@ export class GameComponent implements OnInit {
           console.log('Updated Game', game);
           this.game.players = game.players;
           this.game.stack = game.stack;
+          this.game.genders = game.genders;
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCards = game.playedCards
           this.game.pickCardAnimation = game.pickCardAnimation
@@ -47,23 +48,19 @@ export class GameComponent implements OnInit {
         });
 
     })
-
-
   }
 
   editPlayer(playerId: number) {
-    console.log('editPlayer' + playerId);
+    this.varservice.playerName = this.game.players[playerId]
     const dialogRef = this.dialog.open(EditPlayerComponent, {
-      data: {
-        player: playerId
-      }
     });
     dialogRef.afterClosed().subscribe((change: any) => {
-      console.log('change:' + change)
       if (change) {
         if (change == 'DELETE') {
           this.game.genders.splice(playerId, 1);
           this.game.players.splice(playerId, 1);
+        } else {
+          this.game.players[playerId] = change;
         }
       };
       this.updateGame();
@@ -103,6 +100,18 @@ export class GameComponent implements OnInit {
 
   restartGameDialog() {
     const dialogRef = this.dialog.open(RestartDialogComponent);
+    dialogRef.afterClosed().subscribe((change: any) => {
+      if(change) {
+        if ( change == 'restart') {
+          let players = this.game.players;
+          let genders = this.game.genders;
+          this.newGame();
+          this.game.players = players;
+          this.game.genders = genders;
+          this.updateGame()
+        }
+      }
+    });
   }
 
   openDialog(): void {

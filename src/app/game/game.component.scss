@@ -10,6 +10,13 @@
     }
 }
 
+.preload-image {
+    opacity: 0 !important;
+    height: 0px !important;
+    width: 0px !important;
+    z-index: -99 !important;
+}
+
 .player-container {
     position: absolute;
     right: 0;

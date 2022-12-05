@@ -4,22 +4,23 @@
     [name]="player"
     [gender]="game.genders[i]"></app-player>
 </div>
-<div class="player-container-mobile">
-    <app-player-mobile (click)="editPlayer(i)" class="player-mobile hide-desktop" *ngFor="let player of game.players; let i = index;" [activePlayer]="i == game.currentPlayer"
-    [name]="player" [ngStyle]="{'left.px': 0 + (i*20)}">
+<div class="player-container-mobile hide-desktop">
+    <app-player-mobile (click)="editPlayer(i)" class="player-mobile" *ngFor="let player of game.players; let i = index;" [activePlayer]="i == game.currentPlayer"
+    [name]="player" [gender]="game.genders[i]" [ngStyle]="{'left.px': 0 + (i*20)}">
     </app-player-mobile>
 </div>
 
 <div class="game-container">
     <div class="card-stack">
         <img [ngStyle]="{'right.px': i * 5}" *ngFor="let c of [0,1,2,3,]; let i = index;"
-            src="assets/img/cards/card_cover.png" alt="">
+        src="assets/img/cards/card_cover.png" alt="">
         <img (click)="pickCard()" class="top-card" style="right: 20px" src="assets/img/cards/card_cover.png" alt="">
         <img *ngFor="let card of game.playedCards" class="played-cards" src="assets/img/cards/{{ card }}.png" alt="">
         <img *ngIf="game.pickCardAnimation" class="pick-card" style="right: 20px"
-            src="assets/img/cards/{{ game.currentCard }}.png" alt="">
+        src="assets/img/cards/{{ game.currentCard }}.png" alt="">
     </div>
 </div>
+<img class="preload-image" src="assets/img/cards/{{ game.stack[game.stack.length -1]}}.png" alt="">
 
 <app-game-info [card]="game.currentCard"></app-game-info>
 

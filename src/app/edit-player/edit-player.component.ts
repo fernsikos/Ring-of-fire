@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
+import { VarServiceService } from '../var-service.service';
 
 
 @Component({
@@ -9,9 +10,10 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class EditPlayerComponent implements OnInit {
 
-  name: string = "";
-  
-  constructor(public dialogRef: MatDialogRef<EditPlayerComponent>) {
+  public playerName: string = "";
+
+  constructor(public dialogRef: MatDialogRef<EditPlayerComponent>, private varservice: VarServiceService) {
+    this.playerName = this.varservice.playerName;
   }
 
 

@@ -9,6 +9,7 @@ export class PlayerMobileComponent implements OnInit {
 
   @Input() name;
   @Input() activePlayer : boolean;
+  @Input() gender: string;
 
   constructor() { }
 

@@ -3,13 +3,12 @@
     <p>Please edit the player information.</p>
 
     <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput [(ngModel)]="name">
+        <input matInput [(ngModel)]="playerName">
       </mat-form-field>
       
 </div>
 
 <div mat-dialog-actions>
-    <button mat-button (click)="dialogRef.close()">Close</button>
+    <button mat-button [mat-dialog-close]="playerName" >Close</button>
     <button mat-button color="warn" [mat-dialog-close]="'DELETE'" cdkFocusInitial>Delete player</button>
   </div>

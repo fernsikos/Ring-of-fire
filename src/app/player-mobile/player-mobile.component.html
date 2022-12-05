@@ -1,4 +1,5 @@
 <div class="player" >
-    <img src="assets/img/profile-male.png" alt="">
+    <img *ngIf="gender == 'male'" src="assets/img/avatar_male.PNG" alt="">
+    <img *ngIf="gender == 'female'" src="assets/img/avatar_female.PNG" alt="">
     <span [class.dontHide]="activePlayer">{{ name }}</span>
 </div>

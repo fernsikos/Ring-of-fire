@@ -14,7 +14,6 @@ export class DialogAddPlayerComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>, private varservice: VarServiceService) { 
     varservice.choosedGender = 'male'
-    console.log(varservice.choosedGender)
   }
 
   ngOnInit(): void {
