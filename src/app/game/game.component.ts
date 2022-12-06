@@ -104,7 +104,7 @@ export class GameComponent implements OnInit {
  * Triggers all functions to make one turn in the game
  */
   pickCard() {
-    if (this.animationInProgress() && this.minOnePlayerInGame()) {
+    if (this.animationInProgress() && this.minTwoPlayerInGame()) {
       if (!this.allCardsPlayed()) {
         this.restartGameDialog();
       } else {
@@ -185,8 +185,8 @@ export class GameComponent implements OnInit {
     return !this.game.pickCardAnimation
   }
 
-  minOnePlayerInGame() {
-    return this.game.players.length > 0
+  minTwoPlayerInGame() {
+    return this.game.players.length > 1
   }
 
   allCardsPlayed() {
